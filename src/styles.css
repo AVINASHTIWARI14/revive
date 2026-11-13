@@ -17,12 +17,11 @@
 }
 
 
-/* Full-width flowing wave header — no pill or rounded container */
+/* REVIVE green atmospheric rain / blur-blob header */
 .topbar{
   position:relative;
-  top:auto;
   z-index:15;
-  height:88px;
+  height:104px;
   margin:0;
   padding:0 5.1%;
   display:flex;
@@ -32,47 +31,65 @@
   isolation:isolate;
   border:0!important;
   border-radius:0!important;
-  background:linear-gradient(115deg,#173e30 0%,#245b3d 48%,#1b4935 100%);
-  box-shadow:0 5px 20px rgba(27,68,45,.12);
+  background:
+    radial-gradient(ellipse at 18% 20%,rgba(137,190,123,.42),transparent 38%),
+    radial-gradient(ellipse at 78% 80%,rgba(75,145,98,.42),transparent 42%),
+    linear-gradient(115deg,#102f25 0%,#1b5038 48%,#123a2b 100%);
 }
 .topbar::before,.topbar::after{
   content:"";
   position:absolute;
-  z-index:-1;
-  left:-25%;
-  width:150%;
   pointer-events:none;
-  will-change:transform;
+  inset:-125% -45%;
 }
 .topbar::before{
-  height:88px;
-  bottom:-43px;
-  opacity:.52;
-  background:linear-gradient(90deg,rgba(174,204,139,.5),rgba(115,166,112,.12),rgba(194,213,151,.4));
-  clip-path:polygon(0 42%,8% 25%,17% 42%,26% 60%,36% 43%,46% 22%,56% 36%,66% 60%,76% 42%,86% 22%,94% 35%,100% 28%,100% 100%,0 100%);
-  animation:reviveWaveOne 13s ease-in-out infinite alternate;
+  z-index:-2;
+  rotate:-35deg;
+  opacity:.8;
+  background-image:
+    radial-gradient(3px 76px at 0 120px,rgba(188,221,153,.78),transparent),
+    radial-gradient(3px 76px at 190px 120px,rgba(129,190,127,.55),transparent),
+    radial-gradient(2px 3px at 95px 60px,rgba(216,238,177,.9),transparent 150%),
+    radial-gradient(4px 92px at 0 180px,rgba(106,174,119,.62),transparent),
+    radial-gradient(4px 92px at 250px 180px,rgba(165,208,142,.55),transparent),
+    radial-gradient(2px 3px at 125px 90px,rgba(221,239,184,.85),transparent 150%),
+    radial-gradient(3px 70px at 0 90px,rgba(117,185,125,.65),transparent),
+    radial-gradient(3px 70px at 300px 90px,rgba(178,216,151,.58),transparent),
+    radial-gradient(2px 3px at 150px 45px,rgba(219,240,185,.9),transparent 150%);
+  background-size:190px 240px,190px 240px,190px 240px,250px 310px,250px 310px,250px 310px,300px 190px,300px 190px,300px 190px;
+  filter:blur(.3px);
+  animation:reviveGreenRain 34s linear infinite;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 13%,#000 87%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 13%,#000 87%,transparent 100%);
 }
 .topbar::after{
-  height:78px;
-  bottom:-51px;
-  opacity:.42;
-  background:linear-gradient(90deg,rgba(104,158,103,.2),rgba(204,221,164,.48),rgba(107,158,109,.18));
-  clip-path:polygon(0 30%,9% 48%,19% 30%,29% 17%,39% 39%,49% 58%,59% 38%,69% 17%,79% 34%,89% 55%,96% 40%,100% 45%,100% 100%,0 100%);
-  animation:reviveWaveTwo 17s ease-in-out infinite alternate;
+  z-index:-1;
+  inset:0;
+  opacity:.78;
+  background:
+    radial-gradient(ellipse at 22% 45%,rgba(151,204,134,.38),transparent 34%),
+    radial-gradient(ellipse at 73% 52%,rgba(92,164,113,.34),transparent 38%),
+    radial-gradient(circle at 50% 50%,transparent 0,rgba(9,35,25,.05) 54%,rgba(9,35,25,.52) 100%);
+  backdrop-filter:blur(13px) brightness(1.2) hue-rotate(0deg);
+  animation:reviveGreenBlur 8s ease-in-out infinite alternate;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%);
 }
-.topbar .topbar-right{position:relative;z-index:1}
-.top-brand{color:#f7fbf4!important}
-.top-brand span{color:#c6d99d!important}
-@keyframes reviveWaveOne{
-  from{transform:translateX(-4%) translateY(2px)}
-  to{transform:translateX(4%) translateY(-7px)}
+.topbar .topbar-right{position:relative;z-index:2}
+.top-brand{color:#f7fbf4!important;text-shadow:0 1px 14px rgba(5,28,18,.25)}
+.top-brand span{color:#c6df9f!important}
+@keyframes reviveGreenRain{
+  from{background-position:0 0,0 0,95px 60px,25px 0,25px 0,150px 90px,60px 0,60px 0,210px 45px}
+  to{background-position:0 4200px,0 4200px,95px 4260px,25px 5700px,25px 5700px,150px 5790px,60px 3600px,60px 3600px,210px 3645px}
 }
-@keyframes reviveWaveTwo{
-  from{transform:translateX(3%) translateY(-3px)}
-  to{transform:translateX(-3%) translateY(6px)}
+@keyframes reviveGreenBlur{
+  0%{filter:blur(10px) brightness(1.05) hue-rotate(0deg)}
+  50%{filter:blur(16px) brightness(1.18) hue-rotate(-12deg)}
+  100%{filter:blur(11px) brightness(1.08) hue-rotate(7deg)}
 }
 @media(max-width:700px){
-  .topbar{height:76px;padding:0 5%}
+  .topbar{height:84px;padding:0 5%}
+  .topbar::before{inset:-100% -70%;opacity:.72}
 }
 @media(prefers-reduced-motion:reduce){
   .topbar::before,.topbar::after{animation:none}
