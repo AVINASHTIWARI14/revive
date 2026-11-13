@@ -321,3 +321,50 @@
   .profile-avatar{width:60px;height:60px;min-height:0}
   .profile-avatar svg{width:34px;height:34px}
 }
+
+
+/* Prevent profile card content from being clipped at the left edge or on narrow screens */
+.profile-overview{
+  box-sizing:border-box;
+  grid-template-columns:clamp(76px,10vw,112px) minmax(0,1fr) auto;
+  column-gap:18px;
+  padding:22px;
+  min-width:0;
+}
+.profile-avatar{
+  width:clamp(68px,8vw,96px);
+  height:clamp(68px,8vw,96px);
+  min-width:0;
+  min-height:0;
+  justify-self:center;
+}
+.profile-main,
+.profile-main h2,
+.profile-main p,
+.profile-details,
+.profile-details span{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.profile-edit{justify-self:end;max-width:100%}
+.profile-stats,
+.profile-details{min-width:0}
+@media(max-width:900px){
+  .profile-overview{
+    grid-template-columns:80px minmax(0,1fr);
+    padding:20px;
+    column-gap:16px;
+  }
+  .profile-avatar{width:72px;height:72px}
+  .profile-edit{grid-column:2;grid-row:2;justify-self:start}
+  .profile-stats,.profile-details{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .profile-overview{grid-template-columns:60px minmax(0,1fr);padding:16px;column-gap:12px}
+  .profile-avatar{width:56px;height:56px}
+  .profile-edit{grid-column:1/-1;grid-row:auto}
+  .profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile-stats>div{padding-left:10px}
+  .profile-stats>div:nth-child(odd){border-left:0;padding-left:0}
+  .profile-details span{align-items:flex-start;flex-wrap:wrap}
+}
