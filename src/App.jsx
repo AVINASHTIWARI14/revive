@@ -37,7 +37,7 @@ function App() {
       <main className="main-area">
         <header className="topbar">
           <div className="breadcrumb" aria-hidden="true"></div>
-          <div className="topbar-right"><div className="top-brand">REVIVE<span>.</span></div></div>
+          <div className="topbar-right"><div className="top-brand">REVIVE</div></div>
         </header>
 
         {activeTab === "dashboard" ? (
