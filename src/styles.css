@@ -215,3 +215,21 @@
 .profile-details span{color:#d0ddcf}
 .profile-details b{color:#f0f5e9}
 .profile-edit{background:#edf4e8;border-color:#edf4e8;color:#31583b}
+
+
+/* Editable personal health profile */
+.profile-modal-backdrop{position:fixed;inset:0;z-index:50;background:rgba(12,31,21,.58);backdrop-filter:blur(5px);display:grid;place-items:center;padding:20px}
+.profile-modal{width:min(650px,100%);max-height:min(90vh,760px);overflow:auto;background:#fbfcf8;border:1px solid #dce7d9;border-radius:18px;padding:26px;box-shadow:0 24px 80px rgba(8,28,17,.28);color:#294333}
+.profile-modal-heading{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
+.profile-modal-heading h2{font:700 23px Manrope,sans-serif;margin:6px 0 0;color:#294333}
+.modal-close{border:0;background:#edf3e9;color:#426348;border-radius:50%;width:34px;height:34px;font-size:23px;cursor:pointer}
+.profile-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.profile-form-grid label{display:grid;gap:7px;color:#536b57;font-size:10px;font-weight:700}
+.profile-form-grid input,.profile-form-grid select{width:100%;border:1px solid #dce6d9;background:#fff;border-radius:8px;padding:11px 12px;color:#304a37;font:500 12px "DM Sans",sans-serif;outline:none}
+.profile-form-grid input:focus,.profile-form-grid select:focus{border-color:#729675;box-shadow:0 0 0 3px rgba(114,150,117,.13)}
+.profile-privacy-note{font-size:10px;line-height:1.6;color:#819080;margin:18px 0}
+.profile-modal-actions{display:flex;justify-content:flex-end;gap:9px;border-top:1px solid #e7ece3;padding-top:17px}
+.modal-cancel,.modal-save{border-radius:8px;padding:10px 15px;font-size:10px;font-weight:700;cursor:pointer}
+.modal-cancel{border:1px solid #dce6d9;background:#fff;color:#627564}
+.modal-save{border:1px solid #254f39;background:#254f39;color:#fff;display:flex;align-items:center;gap:8px}
+@media(max-width:520px){.profile-modal{padding:20px}.profile-form-grid{grid-template-columns:1fr}.profile-modal-backdrop{padding:12px}}
