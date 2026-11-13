@@ -34,23 +34,6 @@ function App() {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
-        <a className="brand brand-sidebar" href="#" onClick={() => setActiveTab("dashboard")} aria-label="REVIVE home">
-          <span className="brand-mark">r<span>.</span></span>
-          <span className="brand-copy"><strong>REVIVE</strong><small>Live, You Deserve It.</small></span>
-        </a>
-        <div className="nav-label">WORKSPACE</div>
-        <nav className="nav-list" aria-label="Main navigation">
-          <button className={activeTab === "dashboard" ? "nav-item active" : "nav-item"} onClick={() => setActiveTab("dashboard")}><Icon name="grid"/>Dashboard</button>
-          <button className={activeTab === "feed" ? "nav-item active" : "nav-item"} onClick={() => setActiveTab("feed")}><Icon name="feed"/>Research feed<span className="nav-count">{feed.length}</span></button>
-        </nav>
-        <div className="sidebar-bottom">
-          <div className="status-dot"><span className={apiStatus === "connected" ? "dot online" : "dot"}></span>{apiStatus === "connected" ? "System operational" : apiStatus === "offline" ? "API unavailable" : "Connecting to API"}</div>
-          <div className="sidebar-note">A healthier tomorrow<br/>starts with today.</div>
-          <span className="version">REVIVE · LOCAL PREVIEW</span>
-        </div>
-      </aside>
-
       <main className="main-area">
         <header className="topbar">
           <div className="breadcrumb">Workspace <span>/</span> {activeTab === "dashboard" ? "Dashboard" : "Research feed"}</div>
@@ -94,6 +77,10 @@ function App() {
         )}
         <footer className="footer"><span>© 2026 REVIVE</span><span>AI-POWERED PREVENTIVE HEALTHCARE FOR SENIORS</span><span>LIVE, YOU DESERVE IT.</span></footer>
       </main>
+      <nav className="bottom-nav" aria-label="Main navigation">
+        <button className={activeTab === "dashboard" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("dashboard")}><Icon name="grid" size={21}/><span>Dashboard</span></button>
+        <button className={activeTab === "feed" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("feed")}><Icon name="feed" size={21}/><span>Feed</span></button>
+      </nav>
     </div>
   );
 }
