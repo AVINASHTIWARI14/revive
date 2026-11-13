@@ -297,3 +297,27 @@
   .profile-overview{grid-template-columns:68px minmax(0,1fr);column-gap:12px}
   .profile-avatar{min-height:126px}
 }
+
+
+/* Circular profile avatar on the left side of the profile card */
+.profile-avatar{
+  width:clamp(88px,11vw,124px);
+  min-height:0;
+  height:clamp(88px,11vw,124px);
+  aspect-ratio:1;
+  justify-self:center;
+  align-self:center;
+  border-radius:50%;
+  background:linear-gradient(145deg,rgba(220,239,199,.25),rgba(220,239,199,.09));
+  border:1px solid rgba(226,242,211,.22);
+  display:grid;
+  place-items:center;
+}
+.profile-avatar svg{width:clamp(42px,5vw,58px);height:clamp(42px,5vw,58px);stroke-width:1.35}
+@media(max-width:800px){
+  .profile-avatar{width:76px;height:76px;min-height:0}
+}
+@media(max-width:560px){
+  .profile-avatar{width:60px;height:60px;min-height:0}
+  .profile-avatar svg{width:34px;height:34px}
+}
