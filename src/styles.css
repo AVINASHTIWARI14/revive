@@ -195,3 +195,23 @@
 
 /* Cursive dashboard greeting */
 .dashboard-greeting h1{font-family:"Lobster",cursive;font-size:clamp(48px,5vw,62px);font-weight:600;letter-spacing:0;line-height:1.05}
+
+/* Forest-green personal health profile card */
+.profile-overview{
+  background:linear-gradient(115deg,#1f4936 0%,#28583f 58%,#326447 100%);
+  border:1px solid #315f45;
+  box-shadow:0 12px 30px rgba(28,70,45,.13);
+}
+.profile-avatar{background:rgba(224,239,211,.15);color:#d7e8c8}
+.profile-label{color:#c2d5b9}
+.profile-main h2{color:#f6f8f1}
+.profile-main h2 span{color:#b9cda9}
+.profile-main p{color:#d0ddcf}
+.profile-stats{border-top-color:rgba(235,245,229,.18);border-bottom-color:rgba(235,245,229,.18)}
+.profile-stats>div{border-left-color:rgba(235,245,229,.18)}
+.profile-stats span{color:#bfd0b8}
+.profile-stats strong{color:#f4f7ed}
+.profile-stats small{color:#c6d5c0}
+.profile-details span{color:#d0ddcf}
+.profile-details b{color:#f0f5e9}
+.profile-edit{background:#edf4e8;border-color:#edf4e8;color:#31583b}
