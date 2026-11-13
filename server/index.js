@@ -1,7 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import db from "./db.js";
+import { all } from "./db.js";
 
 const app = express();
 const port = Number(process.env.PORT || 4000);
@@ -14,16 +14,16 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.get("/api/feed", (_req, res) => {
-  const items = db.prepare(
+  const items = all(
     "SELECT id, title, body, category, created_at AS createdAt FROM feed_items ORDER BY created_at DESC"
-  ).all();
+  );
   res.json({ items });
 });
 
 app.get("/api/dashboard", (_req, res) => {
-  const metrics = db.prepare(
+  const metrics = all(
     "SELECT label, value, unit, recorded_at AS recordedAt FROM dashboard_metrics ORDER BY recorded_at DESC"
-  ).all();
+  );
   res.json({ metrics });
 });
 
