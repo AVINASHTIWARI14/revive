@@ -17,31 +17,63 @@
 }
 
 
-/* Floating, continuously animated REVIVE top bar */
+/* Full-width flowing wave header — no pill or rounded container */
 .topbar{
-  position:sticky;
-  top:14px;
+  position:relative;
+  top:auto;
   z-index:15;
-  height:64px;
-  margin:14px 4.2% 0;
-  padding:0 28px;
+  height:88px;
+  margin:0;
+  padding:0 5.1%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  overflow:hidden;
+  isolation:isolate;
   border:0!important;
-  border-radius:16px;
-  background:linear-gradient(110deg,#183f30 0%,#24583d 35%,#34704a 58%,#204c37 82%,#183f30 100%);
-  background-size:240% 100%;
-  animation:reviveGreenFlow 12s ease-in-out infinite;
-  box-shadow:0 10px 28px rgba(28,73,48,.19),inset 0 1px 0 rgba(255,255,255,.12);
+  border-radius:0!important;
+  background:linear-gradient(115deg,#173e30 0%,#245b3d 48%,#1b4935 100%);
+  box-shadow:0 5px 20px rgba(27,68,45,.12);
 }
+.topbar::before,.topbar::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-25%;
+  width:150%;
+  pointer-events:none;
+  will-change:transform;
+}
+.topbar::before{
+  height:88px;
+  bottom:-43px;
+  opacity:.52;
+  background:linear-gradient(90deg,rgba(174,204,139,.5),rgba(115,166,112,.12),rgba(194,213,151,.4));
+  clip-path:polygon(0 42%,8% 25%,17% 42%,26% 60%,36% 43%,46% 22%,56% 36%,66% 60%,76% 42%,86% 22%,94% 35%,100% 28%,100% 100%,0 100%);
+  animation:reviveWaveOne 13s ease-in-out infinite alternate;
+}
+.topbar::after{
+  height:78px;
+  bottom:-51px;
+  opacity:.42;
+  background:linear-gradient(90deg,rgba(104,158,103,.2),rgba(204,221,164,.48),rgba(107,158,109,.18));
+  clip-path:polygon(0 30%,9% 48%,19% 30%,29% 17%,39% 39%,49% 58%,59% 38%,69% 17%,79% 34%,89% 55%,96% 40%,100% 45%,100% 100%,0 100%);
+  animation:reviveWaveTwo 17s ease-in-out infinite alternate;
+}
+.topbar .topbar-right{position:relative;z-index:1}
 .top-brand{color:#f7fbf4!important}
 .top-brand span{color:#c6d99d!important}
-@keyframes reviveGreenFlow{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@keyframes reviveWaveOne{
+  from{transform:translateX(-4%) translateY(2px)}
+  to{transform:translateX(4%) translateY(-7px)}
+}
+@keyframes reviveWaveTwo{
+  from{transform:translateX(3%) translateY(-3px)}
+  to{transform:translateX(-3%) translateY(6px)}
 }
 @media(max-width:700px){
-  .topbar{top:8px;margin:8px 4% 0;height:58px;padding:0 19px;border-radius:14px}
+  .topbar{height:76px;padding:0 5%}
 }
 @media(prefers-reduced-motion:reduce){
-  .topbar{animation:none;background-position:50% 50%}
+  .topbar::before,.topbar::after{animation:none}
 }
