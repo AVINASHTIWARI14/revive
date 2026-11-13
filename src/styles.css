@@ -84,3 +84,6 @@
   .topbar::before,.topbar::after{animation:none}
 }
 
+
+/* Double the REVIVE wordmark size */
+.top-brand{font-size:30px!important}
