@@ -91,3 +91,44 @@
 
 /* Refined editorial wordmark */
 .top-brand{font-family:"Cormorant Garamond",serif!important;font-size:30px!important;font-weight:600!important;letter-spacing:2.2px!important;line-height:1!important}
+
+
+/* Sculpted, animated lower edge: the header itself follows the waves */
+.topbar{
+  clip-path:polygon(
+    0 0,100% 0,100% 76%,
+    96% 79%,92% 85%,88% 90%,84% 93%,
+    80% 92%,76% 88%,72% 83%,68% 80%,
+    64% 81%,60% 86%,56% 92%,52% 96%,
+    48% 95%,44% 91%,40% 85%,36% 81%,
+    32% 79%,28% 81%,24% 86%,20% 91%,
+    16% 94%,12% 92%,8% 88%,4% 83%,0 81%
+  );
+  animation:reviveHeaderEdge 12s ease-in-out infinite alternate;
+}
+@keyframes reviveHeaderEdge{
+  from{
+    clip-path:polygon(
+      0 0,100% 0,100% 76%,96% 79%,92% 85%,88% 90%,84% 93%,
+      80% 92%,76% 88%,72% 83%,68% 80%,64% 81%,60% 86%,
+      56% 92%,52% 96%,48% 95%,44% 91%,40% 85%,36% 81%,
+      32% 79%,28% 81%,24% 86%,20% 91%,16% 94%,12% 92%,
+      8% 88%,4% 83%,0 81%
+    );
+  }
+  to{
+    clip-path:polygon(
+      0 0,100% 0,100% 83%,96% 88%,92% 92%,88% 94%,84% 91%,
+      80% 86%,76% 82%,72% 80%,68% 83%,64% 89%,60% 94%,
+      56% 96%,52% 93%,48% 87%,44% 82%,40% 79%,36% 80%,
+      32% 85%,28% 91%,24% 94%,20% 92%,16% 87%,12% 82%,
+      8% 80%,4% 82%,0 86%
+    );
+  }
+}
+@media(max-width:700px){
+  .topbar{animation-duration:10s}
+}
+@media(prefers-reduced-motion:reduce){
+  .topbar{animation:none}
+}
