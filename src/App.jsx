@@ -14,7 +14,7 @@ const Icon = ({ name, size = 19 }) => {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 };
 
-function App() {
+function App({ user }) {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [feed, setFeed] = useState([]);
   const [metrics, setMetrics] = useState([]);
@@ -43,8 +43,7 @@ function App() {
 
         {activeTab === "dashboard" ? (
 <section className="page-content dashboard-content">
-<div className="eyebrow"><span className="eyebrow-line"></span> YOUR HEALTH, AT A GLANCE</div>
-<div className="page-heading-row"><div><h1>Your dashboard<span className="heading-period">.</span></h1><p className="page-subtitle">A personal space to understand your health and build healthier habits.</p></div><span className="date-chip"><Icon name="heart" size={15}/> Healthy ageing, thoughtfully</span></div>
+<div className="page-heading-row dashboard-greeting"><div><h1>Feeling good{user?.name ? `, ${user.name}` : ""}?</h1></div><span className="date-chip"><Icon name="heart" size={15}/> Healthy ageing, thoughtfully</span></div>
 <section className="profile-overview"><div className="profile-avatar"><Icon name="users" size={25}/></div><div className="profile-main"><span className="profile-label">PERSONAL HEALTH PROFILE</span><h2>Your name <span>·</span> Age —</h2><p>Your health details will appear here once your profile is completed.</p></div><button className="outline-action profile-edit" type="button">Complete profile <Icon name="arrow" size={15}/></button><div className="profile-stats"><div><span>WEIGHT</span><strong>— <small>kg</small></strong></div><div><span>HEIGHT</span><strong>— <small>cm</small></strong></div><div><span>BMI</span><strong>—</strong></div><div><span>BLOOD GROUP</span><strong>—</strong></div></div><div className="profile-details"><span>Medical conditions <b>Not added</b></span><span>Medications <b>Not added</b></span><span>Allergies <b>Not added</b></span></div></section>
 <div className="dash-section-heading"><div><span className="section-eyebrow">01 / REPORTS</span><h2>Your health reports</h2><p>Add lab reports and keep your health records together.</p></div><label className="outline-action upload-label"><Icon name="plus" size={15}/> Add report<input type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={e => setSelectedReport(e.target.files?.[0]?.name || "")}/></label></div>
 <div className="reports-panel"><div className="report-icon"><Icon name="feed" size={23}/></div><div className="report-copy"><h3>New report? Bring it to REVIVE.</h3><p>Upload a PDF or image. Report extraction, explanations and comparisons will be enabled here.</p>{selectedReport && <span className="selected-file">Selected: {selectedReport}</span>}</div><div className="report-plus"><Icon name="plus" size={24}/></div></div>
