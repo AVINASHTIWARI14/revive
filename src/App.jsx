@@ -36,7 +36,7 @@ function App() {
     <div className="app-shell">
       <main className="main-area">
         <header className="topbar">
-          <div className="breadcrumb">Workspace <span>/</span> {activeTab === "dashboard" ? "Dashboard" : "Research feed"}</div>
+          <div className="breadcrumb" aria-hidden="true"></div>
           <div className="topbar-right"><span className="topbar-caption">Preventive health intelligence</span><div className="top-brand">REVIVE<span>.</span></div></div>
         </header>
 
