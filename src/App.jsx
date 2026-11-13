@@ -19,6 +19,7 @@ function App() {
   const [feed, setFeed] = useState([]);
   const [metrics, setMetrics] = useState([]);
   const [apiStatus, setApiStatus] = useState("checking");
+  const [selectedReport, setSelectedReport] = useState("");
 
   useEffect(() => {
     Promise.all([
@@ -41,33 +42,38 @@ function App() {
         </header>
 
         {activeTab === "dashboard" ? (
-          <section className="page-content">
-            <div className="eyebrow"><span className="eyebrow-line"></span> YOUR OVERVIEW</div>
-            <div className="page-heading-row">
-              <div><h1>Dashboard<span className="heading-period">.</span></h1><p className="page-subtitle">A clearer view of health, research and the things that matter.</p></div>
-              <span className="date-chip"><Icon name="activity" size={15}/> Research workspace</span>
-            </div>
-
-            <div className="welcome-panel">
-              <div className="welcome-copy"><span className="welcome-kicker">THE REVIVE INITIATIVE</span><h2>Better health begins<br/>with <em>understanding.</em></h2><p>Evidence-led insights for healthier ageing. Your research dashboard is ready for its first data.</p></div>
-              <div className="welcome-art" aria-hidden="true"><div className="art-ring ring-one"></div><div className="art-ring ring-two"></div><div className="art-leaf">✳</div><div className="art-label">LIVE<br/>WELL</div></div>
-              <div className="welcome-index">01 <span>/ 02</span></div>
-            </div>
-
-            <div className="section-title-row"><div><h3>At a glance</h3><p>Key indicators will appear here when data is connected.</p></div><span className="muted-tag">AWAITING DATA</span></div>
-            <div className="metric-grid">
-              <article className="metric-card"><div className="metric-top"><span>Research records</span><span className="metric-icon"><Icon name="feed"/></span></div><div className="metric-value">—</div><div className="metric-foot">No records added yet</div></article>
-              <article className="metric-card"><div className="metric-top"><span>Health indicators</span><span className="metric-icon"><Icon name="activity"/></span></div><div className="metric-value">—</div><div className="metric-foot">Awaiting connected data</div></article>
-              <article className="metric-card"><div className="metric-top"><span>People represented</span><span className="metric-icon"><Icon name="users"/></span></div><div className="metric-value">—</div><div className="metric-foot">No participant data</div></article>
-              <article className="metric-card"><div className="metric-top"><span>Prevention insights</span><span className="metric-icon"><Icon name="heart"/></span></div><div className="metric-value">—</div><div className="metric-foot">Insights will appear here</div></article>
-            </div>
-
-            <div className="lower-grid">
-              <article className="surface-card chart-card"><div className="card-heading"><div><h3>Health trends</h3><p>Longitudinal view of selected indicators</p></div><span className="tiny-status">NO DATA</span></div><div className="chart-empty"><div className="chart-placeholder"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div className="empty-caption">Your trend visualisation will live here</div><small>Connect a dataset to begin exploring trends.</small></div></article>
-              <article className="surface-card activity-card"><div className="card-heading"><div><h3>Recent activity</h3><p>Latest updates across REVIVE</p></div><button className="text-action" onClick={() => setActiveTab("feed")}>View feed <Icon name="arrow" size={15}/></button></div><div className="activity-empty"><div className="empty-icon"><Icon name="clock" size={21}/></div><strong>Nothing here just yet</strong><p>New research and updates will show up here.</p></div></article>
-            </div>
-          </section>
-        ) : (
+<section className="page-content dashboard-content">
+<div className="eyebrow"><span className="eyebrow-line"></span> YOUR HEALTH, AT A GLANCE</div>
+<div className="page-heading-row"><div><h1>Your dashboard<span className="heading-period">.</span></h1><p className="page-subtitle">A personal space to understand your health and build healthier habits.</p></div><span className="date-chip"><Icon name="heart" size={15}/> Healthy ageing, thoughtfully</span></div>
+<section className="profile-overview"><div className="profile-avatar"><Icon name="users" size={25}/></div><div className="profile-main"><span className="profile-label">PERSONAL HEALTH PROFILE</span><h2>Your name <span>·</span> Age —</h2><p>Your health details will appear here once your profile is completed.</p></div><button className="outline-action profile-edit" type="button">Complete profile <Icon name="arrow" size={15}/></button><div className="profile-stats"><div><span>WEIGHT</span><strong>— <small>kg</small></strong></div><div><span>HEIGHT</span><strong>— <small>cm</small></strong></div><div><span>BMI</span><strong>—</strong></div><div><span>BLOOD GROUP</span><strong>—</strong></div></div><div className="profile-details"><span>Medical conditions <b>Not added</b></span><span>Medications <b>Not added</b></span><span>Allergies <b>Not added</b></span></div></section>
+<div className="dash-section-heading"><div><span className="section-eyebrow">01 / REPORTS</span><h2>Your health reports</h2><p>Add lab reports and keep your health records together.</p></div><label className="outline-action upload-label"><Icon name="plus" size={15}/> Add report<input type="file" accept=".pdf,.png,.jpg,.jpeg" onChange={e => setSelectedReport(e.target.files?.[0]?.name || "")}/></label></div>
+<div className="reports-panel"><div className="report-icon"><Icon name="feed" size={23}/></div><div className="report-copy"><h3>New report? Bring it to REVIVE.</h3><p>Upload a PDF or image. Report extraction, explanations and comparisons will be enabled here.</p>{selectedReport && <span className="selected-file">Selected: {selectedReport}</span>}</div><div className="report-plus"><Icon name="plus" size={24}/></div></div>
+<div className="dash-section-heading"><div><span className="section-eyebrow">02 / UNDERSTAND</span><h2>Lifestyle & healthy ageing</h2><p>A holistic view of the everyday factors that shape your wellbeing.</p></div></div>
+<div className="feature-grid">
+<article className="feature-card"><span className="feature-icon"><Icon name="activity"/></span><div><h3>Current lifestyle</h3><p>Activity, sleep, nutrition, hydration and daily habits.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="heart"/></span><div><h3>Healthy ageing insights</h3><p>Understand modifiable risk factors and areas to focus on.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="activity"/></span><div><h3>Longevity insights</h3><p>Evidence-based population insights, not a lifespan countdown.</p></div><span className="coming-soon">COMING SOON</span></article>
+</div>
+<div className="dash-section-heading"><div><span className="section-eyebrow">03 / NUTRITION</span><h2>Nutrition & your diet</h2><p>Understand your nutrition and shape meals around your needs.</p></div></div>
+<div className="nutrition-grid">
+<article className="nutrition-card"><div className="nutrition-card-top"><span className="feature-icon"><Icon name="heart"/></span><span className="coming-soon">COMING SOON</span></div><h3>Your recommended diet</h3><p>Personalized meal guidance based on your profile, preferences and clinician-reviewed health needs.</p><ul><li>Daily nutrition targets</li><li>Meal ideas and portion guidance</li><li>Dietary preferences and restrictions</li></ul></article>
+<article className="nutrition-card"><div className="nutrition-card-top"><span className="feature-icon"><Icon name="feed"/></span><span className="coming-soon">COMING SOON</span></div><h3>Make your own diet</h3><p>Build a meal plan using the foods, ingredients and budget you already have.</p><ul><li>Add available food resources</li><li>Track protein, carbs, fats and fibre</li><li>Find food-based ways to fill nutrition gaps</li></ul></article>
+</div>
+<div className="dash-section-heading"><div><span className="section-eyebrow">04 / TAKE ACTION</span><h2>Your personal action plan</h2><p>Small, practical steps that support healthier everyday routines.</p></div></div>
+<div className="action-plan-panel"><div className="action-plan-intro"><span className="feature-icon"><Icon name="clock"/></span><div><h3>Your weekly health goals</h3><p>Activity, sleep, nutrition and preventive-care goals will be organized here.</p></div><span className="coming-soon">COMING SOON</span></div><div className="goal-preview"><span>Movement & mobility</span><span>Balanced nutrition</span><span>Sleep & hydration</span><span>Preventive checkups</span></div></div>
+<div className="dash-section-heading"><div><span className="section-eyebrow">05 / TRACK</span><h2>Health trends & progress</h2><p>Follow changes in your health indicators over time.</p></div></div>
+<div className="trends-panel"><div className="trend-intro"><span className="feature-icon"><Icon name="activity"/></span><div><h3>Your health timeline</h3><p>Compare measurements and reports over time to understand what is changing.</p></div><span className="coming-soon">COMING SOON</span></div><div className="trend-metrics"><span>WEIGHT <b>—</b></span><span>BLOOD PRESSURE <b>—</b></span><span>BLOOD SUGAR <b>—</b></span><span>CHOLESTEROL <b>—</b></span></div><div className="trend-empty">Your progress charts will appear when data is available.</div></div>
+<div className="dash-section-heading"><div><span className="section-eyebrow">06 / EVERYDAY SUPPORT</span><h2>More ways REVIVE can help</h2><p>Additional tools designed around the needs of healthy ageing.</p></div></div>
+<div className="feature-grid support-grid">
+<article className="feature-card"><span className="feature-icon"><Icon name="clock"/></span><div><h3>Medication reminders</h3><p>Keep track of prescribed medicine schedules.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="activity"/></span><div><h3>Preventive checkups</h3><p>Keep screening and follow-up reminders in one place.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="users"/></span><div><h3>Cognitive wellness</h3><p>Explore memory activities and cognitive wellbeing.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="activity"/></span><div><h3>Mobility & fall prevention</h3><p>Support balance, strength and safe movement.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="heart"/></span><div><h3>AI health assistant</h3><p>Ask questions about reports, nutrition and healthy habits.</p></div><span className="coming-soon">COMING SOON</span></article>
+<article className="feature-card"><span className="feature-icon"><Icon name="users"/></span><div><h3>Family & caregiver access</h3><p>Share selected health updates with trusted people.</p></div><span className="coming-soon">COMING SOON</span></article>
+</div>
+</section>
+) : (
           <section className="page-content">
             <div className="eyebrow"><span className="eyebrow-line"></span> KNOWLEDGE & DISCOVERY</div>
             <div className="page-heading-row"><div><h1>Research feed<span className="heading-period">.</span></h1><p className="page-subtitle">A space for evidence, discoveries and updates that support healthier ageing.</p></div><span className="date-chip"><Icon name="feed" size={15}/> {feed.length} updates</span></div>
