@@ -17,7 +17,7 @@
 }
 
 
-/* Full-width flowing wave header — no pill or rounded container */
+/* Full-width flowing wave header — stronger, smoother curved layers */
 .topbar{
   position:relative;
   top:auto;
@@ -32,7 +32,9 @@
   isolation:isolate;
   border:0!important;
   border-radius:0!important;
-  background:linear-gradient(115deg,#173e30 0%,#245b3d 48%,#1b4935 100%);
+  background:
+    radial-gradient(ellipse at 48% 100%,rgba(89,151,94,.34),transparent 58%),
+    linear-gradient(115deg,#173e30 0%,#245b3d 48%,#1b4935 100%);
   box-shadow:0 5px 20px rgba(27,68,45,.12);
 }
 .topbar::before,.topbar::after{
@@ -45,34 +47,38 @@
   will-change:transform;
 }
 .topbar::before{
-  height:88px;
-  bottom:-43px;
-  opacity:.52;
-  background:linear-gradient(90deg,rgba(174,204,139,.5),rgba(115,166,112,.12),rgba(194,213,151,.4));
-  clip-path:polygon(0 42%,8% 25%,17% 42%,26% 60%,36% 43%,46% 22%,56% 36%,66% 60%,76% 42%,86% 22%,94% 35%,100% 28%,100% 100%,0 100%);
-  animation:reviveWaveOne 13s ease-in-out infinite alternate;
+  height:124px;
+  bottom:-53px;
+  opacity:.88;
+  background:linear-gradient(90deg,rgba(190,222,151,.78) 0%,rgba(133,190,124,.48) 34%,rgba(218,235,174,.82) 66%,rgba(133,190,124,.58) 100%);
+  clip-path:polygon(0 38%,4% 32%,8% 27%,12% 24%,16% 25%,20% 29%,24% 35%,28% 42%,32% 48%,36% 51%,40% 50%,44% 45%,48% 38%,52% 31%,56% 26%,60% 23%,64% 24%,68% 28%,72% 34%,76% 41%,80% 47%,84% 50%,88% 48%,92% 43%,96% 38%,100% 35%,100% 100%,0 100%);
+  filter:blur(1.2px);
+  animation:reviveWaveOne 10s ease-in-out infinite alternate;
 }
 .topbar::after{
-  height:78px;
-  bottom:-51px;
-  opacity:.42;
-  background:linear-gradient(90deg,rgba(104,158,103,.2),rgba(204,221,164,.48),rgba(107,158,109,.18));
-  clip-path:polygon(0 30%,9% 48%,19% 30%,29% 17%,39% 39%,49% 58%,59% 38%,69% 17%,79% 34%,89% 55%,96% 40%,100% 45%,100% 100%,0 100%);
-  animation:reviveWaveTwo 17s ease-in-out infinite alternate;
+  height:112px;
+  bottom:-65px;
+  opacity:.72;
+  background:linear-gradient(90deg,rgba(91,157,105,.55) 0%,rgba(202,226,161,.82) 30%,rgba(122,180,119,.55) 62%,rgba(190,220,151,.78) 100%);
+  clip-path:polygon(0 30%,4% 35%,8% 42%,12% 48%,16% 51%,20% 50%,24% 45%,28% 38%,32% 31%,36% 26%,40% 24%,44% 26%,48% 32%,52% 40%,56% 47%,60% 51%,64% 50%,68% 45%,72% 38%,76% 31%,80% 26%,84% 24%,88% 27%,92% 33%,96% 39%,100% 42%,100% 100%,0 100%);
+  filter:blur(1.5px);
+  animation:reviveWaveTwo 13s ease-in-out infinite alternate;
 }
 .topbar .topbar-right{position:relative;z-index:1}
-.top-brand{color:#f7fbf4!important}
-.top-brand span{color:#c6d99d!important}
+.top-brand{color:#f7fbf4!important;text-shadow:0 1px 12px rgba(8,35,23,.25)}
+.top-brand span{color:#d3e9a8!important}
 @keyframes reviveWaveOne{
-  from{transform:translateX(-4%) translateY(2px)}
-  to{transform:translateX(4%) translateY(-7px)}
+  from{transform:translateX(-5%) translateY(5px) scaleY(.94)}
+  to{transform:translateX(5%) translateY(-9px) scaleY(1.08)}
 }
 @keyframes reviveWaveTwo{
-  from{transform:translateX(3%) translateY(-3px)}
-  to{transform:translateX(-3%) translateY(6px)}
+  from{transform:translateX(4%) translateY(-5px) scaleY(1.08)}
+  to{transform:translateX(-4%) translateY(8px) scaleY(.94)}
 }
 @media(max-width:700px){
   .topbar{height:76px;padding:0 5%}
+  .topbar::before{height:112px;bottom:-55px}
+  .topbar::after{height:104px;bottom:-62px}
 }
 @media(prefers-reduced-motion:reduce){
   .topbar::before,.topbar::after{animation:none}
