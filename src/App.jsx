@@ -16,6 +16,7 @@ const Icon = ({ name, size = 19 }) => {
 
 function App({ user }) {
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [authMode, setAuthMode] = useState("");
   const [feed, setFeed] = useState([]);
   const [metrics, setMetrics] = useState([]);
   const [apiStatus, setApiStatus] = useState("checking");
@@ -116,6 +117,43 @@ function App({ user }) {
       setApiStatus("connected");
     }).catch(() => setApiStatus("offline"));
   }, []);
+
+  if (!user) {
+    return (
+      <div className="app-shell landing-shell">
+        <main className="main-area landing-main">
+          <header className="topbar landing-topbar">
+            <div className="breadcrumb" aria-hidden="true"></div>
+            <div className="topbar-right"><div className="top-brand">REVIVE</div></div>
+          </header>
+          <section className="landing-hero">
+            <div className="landing-orb landing-orb-one"></div><div className="landing-orb landing-orb-two"></div>
+            <div className="landing-content">
+              <span className="landing-kicker"><i></i> PREVENTIVE HEALTH. MORE MEANINGFUL YEARS.</span>
+              <h1>Live well.<br/><em>Age well.</em></h1>
+              <p className="landing-description">Your health journey deserves more than numbers. Discover a clearer, more thoughtful way to understand your wellbeing and build healthier habits.</p>
+              <div className="landing-actions">
+                <button className="landing-primary" type="button" onClick={() => setAuthMode("signup")}>Get started <Icon name="arrow" size={17}/></button>
+                <button className="landing-secondary" type="button" onClick={() => setAuthMode("login")}>Log in</button>
+              </div>
+              <div className="landing-note"><span>✳</span> A little care today can shape a better tomorrow.</div>
+            </div>
+            <div className="landing-art" aria-hidden="true"><div className="landing-art-ring ring-a"></div><div className="landing-art-ring ring-b"></div><div className="landing-leaf">✳</div><div className="landing-art-caption">WELLNESS<br/>IN EVERY DAY</div></div>
+            <div className="landing-bottomline"><span>01 — YOUR HEALTH, YOUR PACE</span><span>MADE FOR HEALTHIER AGEING</span></div>
+          </section>
+          {authMode && <div className="landing-auth-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setAuthMode(""); }}>
+            <section className="landing-auth-card" role="dialog" aria-modal="true" aria-labelledby="landing-auth-title">
+              <button className="landing-auth-close" type="button" onClick={() => setAuthMode("")} aria-label="Close">×</button>
+              <span className="landing-kicker">WELCOME TO REVIVE</span>
+              <h2 id="landing-auth-title">{authMode === "signup" ? "Create your account" : "Welcome back"}</h2>
+              <p>Secure sign-in and account creation will be enabled when authentication is connected.</p>
+              <button className="landing-auth-back" type="button" onClick={() => setAuthMode("")}>Back to home</button>
+            </section>
+          </div>}
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="app-shell">
