@@ -672,8 +672,8 @@
   overflow:hidden;
   pointer-events:none;
   background:transparent;
-  -webkit-mask-image:radial-gradient(ellipse 82% 82% at 58% 50%,#000 54%,transparent 100%);
-  mask-image:radial-gradient(ellipse 82% 82% at 58% 50%,#000 54%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 7%,#000 24%,#000 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 7%,#000 24%,#000 100%);
 }
 .landing-image-panel::before{content:none}
 .landing-image-panel img{
