@@ -507,3 +507,26 @@
 @media(prefers-reduced-motion:reduce){
   .profile-overview::before{animation:none}
 }
+
+
+/* BMI category shown directly beneath the calculated value */
+.profile-stats .bmi-stat{gap:5px}
+.profile-stats .bmi-status{
+  display:inline-flex;
+  justify-self:start;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  border-radius:20px;
+  padding:4px 9px;
+  font-size:10px;
+  line-height:1.3;
+  letter-spacing:.1px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.profile-stats .bmi-status.healthy{background:rgba(207,235,192,.2);color:#d9f2c9}
+.profile-stats .bmi-status.underweight{background:rgba(226,211,157,.2);color:#f3dfaa}
+.profile-stats .bmi-status.overweight{background:rgba(245,190,128,.2);color:#ffd1a1}
+.profile-stats .bmi-status.obesity{background:rgba(244,157,147,.2);color:#ffc0b7}
+.profile-stats .bmi-status.missing{background:rgba(255,255,255,.12);color:#d6dfd1}
