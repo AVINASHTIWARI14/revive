@@ -14,7 +14,13 @@ const Icon = ({ name, size = 19 }) => {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 };
 
-function App({ user }) {
+function App({ user: externalUser }) {
+  const [demoUser, setDemoUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('revive-demo-user') || 'null'); }
+    catch { return null; }
+  });
+  const user = externalUser || demoUser;
+  const [authError, setAuthError] = useState('');
   const [activeTab, setActiveTab] = useState("dashboard");
   const [authMode, setAuthMode] = useState("");
   const [feed, setFeed] = useState([]);
@@ -148,11 +154,12 @@ function App({ user }) {
                 <button type="button" className={authMode === "login" ? "active" : ""} onClick={() => setAuthMode("login")}>Log in</button>
                 <button type="button" className={authMode === "signup" ? "active" : ""} onClick={() => setAuthMode("signup")}>Sign up</button>
               </div>
-              <form className="landing-auth-form" onSubmit={e => e.preventDefault()}>
-                {authMode === "signup" && <label>Full name<input type="text" placeholder="Your name" autoComplete="name" required /></label>}
-                <label>Email address<input type="email" placeholder="you@example.com" autoComplete="email" required /></label>
-                <label>Password<input type="password" placeholder="Enter your password" autoComplete={authMode === "signup" ? "new-password" : "current-password"} required /></label>
+              <form className="landing-auth-form" onSubmit={e => { e.preventDefault(); const form = new FormData(e.currentTarget); const email = String(form.get("email") || "").trim(); const password = String(form.get("password") || ""); const name = String(form.get("name") || "").trim(); if (password !== "12345") { setAuthError("For testing, use the demo password 12345."); return; } const demoAccount = { name: name || email.split("@")[0] || "REVIVE User", email }; localStorage.setItem("revive-demo-user", JSON.stringify(demoAccount)); setDemoUser(demoAccount); setAuthError(""); setAuthMode(""); }}>
+                {authMode === "signup" && <label>Full name<input name="name" type="text" placeholder="Your name" autoComplete="name" required /></label>}
+                <label>Email address<input name="email" type="email" placeholder="you@example.com" autoComplete="email" required /></label>
+                <label>Password<input name="password" type="password" placeholder="Enter your password" autoComplete={authMode === "signup" ? "new-password" : "current-password"} required /></label>
                 <button className="landing-auth-submit" type="submit">{authMode === "signup" ? "Create account" : "Log in"} <Icon name="arrow" size={16}/></button>
+                {authError && <p className="landing-auth-error" role="alert">{authError}</p>}
                 <div className="landing-auth-divider"><span>OR CONTINUE WITH</span></div>
                 <button className="landing-google-button" type="button">
                   <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.7c3.9-3.6 6-8.8 6-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.7-5.1c-1.8 1.2-4 1.9-6.8 1.9-5.2 0-9.6-3.5-11.2-8.2H5.9v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.8 27.7a12 12 0 0 1 0-7.4V15H5.9a20 20 0 0 0 0 17.9l6.9-5.2Z"/><path fill="#EA4335" d="M24 12.1c3 0 5.7 1 7.8 3.1l5.9-5.9C34.1 5.9 29.5 4 24 4A20 20 0 0 0 5.9 15l6.9 5.3c1.6-4.7 6-8.2 11.2-8.2Z"/></svg>
