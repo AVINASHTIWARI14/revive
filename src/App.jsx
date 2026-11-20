@@ -212,7 +212,6 @@ function App({ user: externalUser }) {
 <article className="feature-card"><span className="feature-icon"><Icon name="heart"/></span><div><h3>AI health assistant</h3><p>Ask questions about reports, nutrition and healthy habits.</p></div><span className="coming-soon">COMING SOON</span></article>
 <article className="feature-card"><span className="feature-icon"><Icon name="users"/></span><div><h3>Family & caregiver access</h3><p>Share selected health updates with trusted people.</p></div><span className="coming-soon">COMING SOON</span></article>
 </div>
-<div className="dashboard-footer"><span>© 2026 REVIVE</span><button type="button" className="logout-button" onClick={() => { localStorage.removeItem("revive-demo-user"); setDemoUser(null); setAuthMode(""); setActiveTab("dashboard"); }}>Log out <span aria-hidden="true">↗</span></button></div>
 </section>
 ) : (
           <section className="page-content">
@@ -225,8 +224,11 @@ function App({ user: externalUser }) {
         {activeTab === "feed" && <footer className="footer"><span>© 2026 REVIVE</span><span>AI-POWERED PREVENTIVE HEALTHCARE FOR SENIORS</span><span>LIVE, YOU DESERVE IT.</span></footer>}
       </main>
       <nav className="bottom-nav" aria-label="Main navigation">
-        <button className={activeTab === "dashboard" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("dashboard")}><Icon name="grid" size={21}/><span>Dashboard</span></button>
-        <button className={activeTab === "feed" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("feed")}><Icon name="feed" size={21}/><span>Feed</span></button>
+        <div className="bottom-nav-links">
+          <button className={activeTab === "dashboard" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("dashboard")}><Icon name="grid" size={21}/><span>Dashboard</span></button>
+          <button className={activeTab === "feed" ? "bottom-nav-item active" : "bottom-nav-item"} onClick={() => setActiveTab("feed")}><Icon name="feed" size={21}/><span>Feed</span></button>
+        </div>
+        <button type="button" className="logout-button nav-logout-button" onClick={() => { localStorage.removeItem("revive-demo-user"); setDemoUser(null); setAuthMode(""); setActiveTab("dashboard"); }}>Log out <span aria-hidden="true">↗</span></button>
       </nav>
     </div>
   );
