@@ -460,3 +460,33 @@
 .avatar-menu small{font-size:10px;line-height:1.4;color:#a34e43;padding:3px 4px}
 @media(max-width:800px){.avatar-camera{opacity:1;transform:none;width:24px;height:24px}}
 @media(prefers-reduced-motion:reduce){.avatar-camera{transition:none}}
+
+
+/* Keep the avatar picker visible outside the profile card */
+.profile-overview{
+  overflow:visible;
+  isolation:isolate;
+}
+.profile-overview::before{
+  inset:0;
+  border-radius:inherit;
+  overflow:hidden;
+  pointer-events:none;
+}
+.profile-avatar-wrap{
+  position:relative;
+  z-index:30;
+}
+.avatar-menu{
+  top:calc(100% + 10px);
+  left:0;
+  transform:none;
+  z-index:100;
+  width:min(230px,calc(100vw - 48px));
+}
+@media(max-width:560px){
+  .avatar-menu{
+    left:0;
+    width:min(220px,calc(100vw - 40px));
+  }
+}
