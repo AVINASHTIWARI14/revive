@@ -571,3 +571,39 @@
 @media(prefers-reduced-motion:reduce){
   .avatar-camera{transition:none}
 }
+
+
+/* Larger centered add icon; blur the avatar content itself on hover */
+.avatar-camera{
+  position:absolute;
+  display:grid;
+  place-items:center;
+  inset:0;
+  background:rgba(13,35,23,.22);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  pointer-events:none;
+}
+.avatar-camera svg{
+  width:36px;
+  height:36px;
+  stroke-width:2.2;
+}
+.profile-avatar img,
+.profile-avatar>svg{
+  transition:filter .2s ease,transform .2s ease;
+}
+.profile-avatar:hover img,
+.profile-avatar:hover>svg,
+.profile-avatar:focus-visible img,
+.profile-avatar:focus-visible>svg{
+  filter:blur(3px);
+  transform:scale(1.06);
+}
+@media(max-width:800px){
+  .profile-avatar:active img,
+  .profile-avatar:active>svg{
+    filter:blur(3px);
+    transform:scale(1.06);
+  }
+}
