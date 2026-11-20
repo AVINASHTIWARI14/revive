@@ -444,3 +444,19 @@
   .profile-details span,.profile-details b{font-size:11px}
   .profile-edit{font-size:11px;padding:11px 13px}
 }
+
+
+/* Profile photo picker */
+.profile-avatar-wrap{position:relative;justify-self:center;align-self:center;z-index:4}
+.profile-avatar{position:relative;overflow:hidden;padding:0;cursor:pointer}
+.profile-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar-camera{position:absolute;right:2px;bottom:2px;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#e5efdc;color:#28563b;border:2px solid #28563b;opacity:0;transform:translateY(3px);transition:opacity .18s ease,transform .18s ease}
+.profile-avatar:hover .avatar-camera,.profile-avatar:focus-visible .avatar-camera{opacity:1;transform:translateY(0)}
+.avatar-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);width:220px;padding:13px;background:#fbfcf8;border:1px solid #dce7d9;border-radius:12px;box-shadow:0 14px 38px rgba(8,28,17,.22);display:grid;gap:7px;z-index:20;color:#294333}
+.avatar-menu strong{font-size:12px;padding:2px 4px 6px}
+.avatar-menu label,.avatar-menu>button{position:relative;display:flex;align-items:center;gap:9px;padding:10px;border:0;border-radius:8px;background:#f0f5ec;color:#426348;font:600 11px "DM Sans",sans-serif;text-align:left;cursor:pointer}
+.avatar-menu label:hover,.avatar-menu>button:hover{background:#e5eee0}
+.avatar-menu input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.avatar-menu small{font-size:10px;line-height:1.4;color:#a34e43;padding:3px 4px}
+@media(max-width:800px){.avatar-camera{opacity:1;transform:none;width:24px;height:24px}}
+@media(prefers-reduced-motion:reduce){.avatar-camera{transition:none}}
