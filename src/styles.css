@@ -665,13 +665,16 @@
 .landing-image-panel{
   position:absolute;
   z-index:1;
-  top:8%;
+  top:50%;
   right:7%;
   width:36%;
-  height:84%;
-  overflow:hidden;
+  height:min(84%,512px);
+  max-width:512px;
+  max-height:512px;
+  overflow:visible;
   pointer-events:none;
   background:transparent;
+  transform:translateY(-50%);
   -webkit-mask-image:none;
   mask-image:none;
 }
@@ -680,12 +683,14 @@
   display:block;
   width:100%;
   height:100%;
+  max-width:512px;
+  max-height:512px;
   object-fit:contain;
   object-position:center;
-  image-rendering:high-quality;
-  transform:translate3d(0,0,0);
-  backface-visibility:hidden;
-  filter:saturate(1.04) contrast(1.025);
+  image-rendering:auto;
+  transform:none;
+  backface-visibility:visible;
+  filter:none;
 }
 .landing-content{width:min(560px,64%)}
 @media(max-width:760px){
