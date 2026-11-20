@@ -130,7 +130,7 @@ function App({ user }) {
             <div className="landing-orb landing-orb-one"></div><div className="landing-orb landing-orb-two"></div>
             <div className="landing-content">
               <h1>Live well.<br/><em>Age well.</em></h1>
-              <p className="landing-description">Your health journey deserves more than numbers. Discover a clearer, more thoughtful way to understand your wellbeing and build healthier habits.</p>
+              <p className="landing-description">Designed for the golden years. A thoughtful approach to healthier living, everyday wellbeing, and ageing well.</p>
               <div className="landing-actions">
                 <button className="landing-primary" type="button" onClick={() => setAuthMode("signup")}>Get started <Icon name="arrow" size={17}/></button>
                 <button className="landing-secondary" type="button" onClick={() => setAuthMode("login")}>Log in</button>
