@@ -6,14 +6,19 @@
 /* Instagram-style bottom navigation */
 .sidebar{display:none!important}
 .main-area{margin-left:0!important;padding-bottom:88px}
-.bottom-nav{position:fixed;z-index:20;left:0;right:0;bottom:0;min-height:76px;padding:10px 24px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:center;gap:clamp(36px,10vw,120px);background:rgba(255,255,255,.96);border-top:1px solid #e7ece4;box-shadow:0 -8px 28px rgba(35,65,45,.06);backdrop-filter:blur(14px)}
+.bottom-nav{position:fixed;z-index:20;left:0;right:0;bottom:0;min-height:76px;padding:10px 24px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.96);border-top:1px solid #e7ece4;box-shadow:0 -8px 28px rgba(35,65,45,.06);backdrop-filter:blur(14px)}
+.bottom-nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(36px,10vw,120px)}
+.nav-logout-button{position:absolute;right:24px;top:50%;transform:translateY(-50%)}
+.nav-logout-button:hover{transform:translateY(calc(-50% - 1px))}
 .bottom-nav-item{min-width:112px;border:0;background:transparent;color:#899589;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 15px;border-radius:13px;font-size:10px;font-weight:600;letter-spacing:.15px;cursor:pointer;transition:background .18s ease,color .18s ease}
 .bottom-nav-item.active{color:#244c3b;background:#edf3e9}
 .bottom-nav-item span{line-height:1.2}
 @media(max-width:700px){
   .sidebar{display:none!important}
   .main-area{margin-left:0!important;padding-bottom:82px}
-  .bottom-nav{min-height:70px;gap:clamp(28px,16vw,90px);padding-left:12px;padding-right:12px}
+  .bottom-nav{min-height:70px;padding-left:10px;padding-right:10px}
+  .bottom-nav-links{gap:clamp(20px,10vw,60px)}
+  .nav-logout-button{right:10px;min-height:36px;padding:0 12px;font-size:9px}
   .bottom-nav-item{min-width:96px}
   .footer{padding-bottom:18px}
 }
@@ -767,9 +772,6 @@
 .landing-auth-error{margin:0;color:#a64036;font-size:11px;line-height:1.5;text-align:center}
 
 
-/* Dashboard footer and logout action */
-.dashboard-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:54px 0 34px;padding:22px 0 8px;border-top:1px solid rgba(48,77,54,.14);color:#8a9788;font-size:9px;letter-spacing:1.2px}
 .logout-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:40px;padding:0 20px;border:1px solid #b9433c;border-radius:999px;background:#b9433c;color:#fff;font:700 10px "DM Sans",sans-serif;letter-spacing:.7px;cursor:pointer;transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}
 .logout-button:hover{background:#98342f;border-color:#98342f;transform:translateY(-1px);box-shadow:0 6px 16px rgba(185,67,60,.2)}
 .logout-button span{font-size:14px}
-@media(max-width:520px){.dashboard-footer{margin-top:38px;padding-top:18px}}
