@@ -490,3 +490,20 @@
     width:min(220px,calc(100vw - 40px));
   }
 }
+
+
+/* Keep the animated glow contained within the profile card */
+.profile-overview::before{
+  inset:0;
+  border-radius:inherit;
+  transform:none;
+  background-size:200% 200%;
+  animation:profileGreenGlowInside 9s ease-in-out infinite alternate;
+}
+@keyframes profileGreenGlowInside{
+  0%{background-position:0% 45%;opacity:.55}
+  100%{background-position:100% 55%;opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .profile-overview::before{animation:none}
+}
