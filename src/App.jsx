@@ -143,10 +143,7 @@ function App({ user }) {
           {authMode && <div className="landing-auth-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setAuthMode(""); }}>
             <section className="landing-auth-card" role="dialog" aria-modal="true" aria-labelledby="landing-auth-title">
               <button className="landing-auth-close" type="button" onClick={() => setAuthMode("")} aria-label="Close">×</button>
-              <span className="landing-auth-kicker">WELCOME TO REVIVE</span>
-              <div className="landing-auth-brand">REVIVE</div>
               <h2 id="landing-auth-title">{authMode === "signup" ? "Create your account" : "Welcome back"}</h2>
-              <p className="landing-auth-subtitle">{authMode === "signup" ? "Start making every year a healthier one." : "Sign in to continue your wellbeing journey."}</p>
               <div className="landing-auth-switch" role="group" aria-label="Choose account action">
                 <button type="button" className={authMode === "login" ? "active" : ""} onClick={() => setAuthMode("login")}>Log in</button>
                 <button type="button" className={authMode === "signup" ? "active" : ""} onClick={() => setAuthMode("signup")}>Sign up</button>
@@ -157,7 +154,6 @@ function App({ user }) {
                 <label>Password<input type="password" placeholder="Enter your password" autoComplete={authMode === "signup" ? "new-password" : "current-password"} required /></label>
                 <button className="landing-auth-submit" type="submit">{authMode === "signup" ? "Create account" : "Log in"} <Icon name="arrow" size={16}/></button>
               </form>
-              <p className="landing-auth-footnote">Authentication will be connected in the next setup step.</p>
             </section>
           </div>}
         </main>
