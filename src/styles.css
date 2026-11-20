@@ -368,3 +368,9 @@
   .profile-stats>div:nth-child(odd){border-left:0;padding-left:0}
   .profile-details span{align-items:flex-start;flex-wrap:wrap}
 }
+
+
+/* Profile name and gender hierarchy */
+.profile-main h2{margin:0 0 5px}
+.profile-main h2 .profile-gender{font-size:.72em;font-weight:500;color:#c8d9bd;letter-spacing:0}
+.profile-main p{margin:0}
