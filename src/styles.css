@@ -621,8 +621,8 @@
 .landing-content{position:relative;z-index:3;width:min(560px,58%);padding-bottom:20px}
 .landing-kicker{display:flex;align-items:center;gap:10px;color:#c4d7b9;font-size:9px;font-weight:700;letter-spacing:2.2px}
 .landing-kicker i{width:7px;height:7px;border-radius:50%;background:#c9dfa9;box-shadow:0 0 0 5px rgba(201,223,169,.12)}
-.landing-content h1{font:600 clamp(58px,8vw,104px)/.98 "Cormorant Garamond",serif;letter-spacing:-2px;margin:28px 0 20px;color:#f7f8f0}
-.landing-content h1 em{font-weight:500;color:#c9dca9}
+.landing-content h1{font:400 clamp(58px,8vw,104px)/1.08 "Lobster",cursive;letter-spacing:0;margin:28px 0 20px;color:#f7f8f0}
+.landing-content h1 em{font-weight:400;color:#c9dca9}
 .landing-description{max-width:440px;color:rgba(237,244,230,.78);font-size:14px;line-height:1.9;margin:0}
 .landing-actions{display:flex;align-items:center;gap:12px;margin-top:34px}
 .landing-primary,.landing-secondary{min-height:48px;border-radius:999px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;gap:14px;font-size:11px;font-weight:700;letter-spacing:.3px;cursor:pointer;transition:transform .2s,background .2s}
