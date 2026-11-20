@@ -660,44 +660,41 @@
 }
 
 
-/* Refined landing image: narrower, softly blended, full-resolution rendering */
+/* Landing artwork: smaller composition with feathered edges and no hard panel seam */
 .landing-hero{position:relative}
 .landing-image-panel{
   position:absolute;
   z-index:1;
-  top:0;
-  right:0;
-  bottom:0;
-  width:42%;
+  top:8%;
+  right:2%;
+  width:36%;
+  height:84%;
   overflow:hidden;
   pointer-events:none;
+  background:transparent;
+  -webkit-mask-image:radial-gradient(ellipse 78% 78% at 58% 50%,#000 54%,transparent 100%);
+  mask-image:radial-gradient(ellipse 78% 78% at 58% 50%,#000 54%,transparent 100%);
 }
-.landing-image-panel::before{
-  content:"";
-  position:absolute;
-  z-index:1;
-  inset:0;
-  background:linear-gradient(90deg,
-    #173f30 0%,
-    rgba(23,63,48,.92) 5%,
-    rgba(23,63,48,.62) 18%,
-    rgba(23,63,48,.22) 38%,
-    rgba(23,63,48,0) 68%);
-}
+.landing-image-panel::before{content:none}
 .landing-image-panel img{
   display:block;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
   image-rendering:auto;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  filter:saturate(1.04) contrast(1.025);
 }
-.landing-content{width:min(560px,58%)}
+.landing-content{width:min(560px,64%)}
 @media(max-width:760px){
-  .landing-image-panel{width:100%;opacity:.18}
-  .landing-image-panel::before{
-    background:linear-gradient(90deg,rgba(23,63,48,.96),rgba(23,63,48,.58)),
-      linear-gradient(0deg,#173f30 0%,transparent 70%);
+  .landing-image-panel{
+    top:12%;
+    right:-5%;
+    width:58%;
+    height:72%;
+    opacity:.22;
   }
   .landing-content{width:100%}
 }
