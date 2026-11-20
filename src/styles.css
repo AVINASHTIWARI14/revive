@@ -666,7 +666,7 @@
   position:absolute;
   z-index:1;
   top:8%;
-  right:10%;
+  right:13%;
   width:36%;
   height:84%;
   overflow:visible;
@@ -717,8 +717,9 @@
 @media(prefers-reduced-motion:reduce){
   .landing-image-panel::before,.landing-image-panel::after{animation:none}
 }
-.landing-content{width:min(560px,64%)}
+.landing-content{width:min(560px,64%);transform:translateX(24px)}
 @media(max-width:760px){
+  .landing-content{transform:none}
   .landing-image-panel{
     top:12%;
     right:-5%;
