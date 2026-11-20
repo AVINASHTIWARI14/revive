@@ -530,3 +530,12 @@
 .profile-stats .bmi-status.overweight{background:rgba(245,190,128,.2);color:#ffd1a1}
 .profile-stats .bmi-status.obesity{background:rgba(244,157,147,.2);color:#ffc0b7}
 .profile-stats .bmi-status.missing{background:rgba(255,255,255,.12);color:#d6dfd1}
+
+
+/* Live camera capture inside the profile photo menu */
+.avatar-menu .camera-panel{display:grid;gap:9px}
+.avatar-menu .camera-panel video{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px;background:#14251b}
+.avatar-menu .camera-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.avatar-menu .camera-actions button{border:0;border-radius:8px;padding:10px 7px;background:#315d40;color:#fff;font:600 11px "DM Sans",sans-serif;cursor:pointer}
+.avatar-menu .camera-actions button:last-child{background:#e8eee5;color:#426348}
+.avatar-menu>button{width:100%}
