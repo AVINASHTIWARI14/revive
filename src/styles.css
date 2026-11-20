@@ -665,16 +665,13 @@
 .landing-image-panel{
   position:absolute;
   z-index:1;
-  top:50%;
+  top:8%;
   right:7%;
   width:36%;
-  height:min(84%,512px);
-  max-width:512px;
-  max-height:512px;
+  height:84%;
   overflow:visible;
   pointer-events:none;
   background:transparent;
-  transform:translateY(-50%);
   -webkit-mask-image:none;
   mask-image:none;
 }
@@ -683,8 +680,6 @@
   display:block;
   width:100%;
   height:100%;
-  max-width:512px;
-  max-height:512px;
   object-fit:contain;
   object-position:center;
   image-rendering:auto;
