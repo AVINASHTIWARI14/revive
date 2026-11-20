@@ -136,7 +136,7 @@ function App({ user }) {
                 <button className="landing-secondary" type="button" onClick={() => setAuthMode("login")}>Log in</button>
               </div>
             </div>
-            <div className="landing-art" aria-hidden="true"><div className="landing-art-ring ring-a"></div><div className="landing-art-ring ring-b"></div><div className="landing-leaf">✳</div><div className="landing-art-caption">WELLNESS<br/>IN EVERY DAY</div></div>
+            
           </section>
           {authMode && <div className="landing-auth-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setAuthMode(""); }}>
             <section className="landing-auth-card" role="dialog" aria-modal="true" aria-labelledby="landing-auth-title">
