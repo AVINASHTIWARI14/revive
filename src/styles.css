@@ -616,9 +616,7 @@
 .landing-hero{
   position:relative;isolation:isolate;overflow:hidden;flex:1;min-height:calc(100svh - 88px);
   display:flex;align-items:center;padding:clamp(48px,8vw,110px) clamp(28px,10vw,150px) 90px;
-  color:#f6f8ef;background:
-    radial-gradient(ellipse at 78% 48%,rgba(92,145,89,.26),transparent 38%),
-    linear-gradient(125deg,#173f30 0%,#1e5038 52%,#173f30 100%);
+  color:#f6f8ef;background:linear-gradient(125deg,#173f30 0%,#1e5038 52%,#173f30 100%);
 }
 .landing-content{position:relative;z-index:3;width:min(560px,58%);padding-bottom:20px}
 .landing-kicker{display:flex;align-items:center;gap:10px;color:#c4d7b9;font-size:9px;font-weight:700;letter-spacing:2.2px}
@@ -634,12 +632,6 @@
 .landing-secondary:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
 .landing-note{display:flex;align-items:center;gap:10px;margin-top:48px;color:rgba(229,239,218,.65);font-size:10px;letter-spacing:.2px}
 .landing-note span{font-size:18px;color:#c8dba8}
-.landing-art{position:absolute;z-index:1;width:min(43vw,510px);aspect-ratio:1;right:8%;top:50%;transform:translateY(-51%);border-radius:50%;background:radial-gradient(circle at 45% 42%,rgba(139,180,119,.35),rgba(69,119,79,.18) 48%,rgba(27,75,52,.05) 70%);display:grid;place-items:center}
-.landing-art:before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(204,225,170,.13),transparent 65%);filter:blur(5px)}
-.landing-art-ring{position:absolute;border:1px solid rgba(216,234,192,.25);border-radius:50%;inset:5%;transform:rotate(-25deg) scaleY(.82)}
-.landing-art-ring.ring-b{inset:19%;border-color:rgba(216,234,192,.2);transform:rotate(32deg) scaleY(.82)}
-.landing-leaf{position:relative;color:#d1e2b1;font:200 clamp(120px,19vw,230px)/1 Georgia,serif;text-shadow:0 0 50px rgba(202,225,167,.18)}
-.landing-art-caption{position:absolute;bottom:18%;right:7%;font:600 9px/1.8 "DM Sans",sans-serif;letter-spacing:2px;color:rgba(230,240,218,.75)}
 .landing-bottomline{position:absolute;left:clamp(28px,10vw,150px);right:clamp(28px,10vw,150px);bottom:25px;display:flex;justify-content:space-between;gap:16px;color:rgba(218,233,206,.43);font-size:8px;letter-spacing:1.5px}
 .landing-orb{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(1px)}
 .landing-orb-one{width:360px;height:360px;left:-210px;bottom:-230px;background:rgba(120,166,101,.13)}
@@ -656,7 +648,7 @@
  .landing-content{width:100%;padding-top:5vh}
  .landing-content h1{font-size:clamp(58px,15vw,82px);margin-top:24px}
  .landing-description{max-width:430px;font-size:12px}
- .landing-art{width:78vw;right:-24vw;top:auto;bottom:-8vw;transform:none;opacity:.45}
+
  .landing-art-caption{display:none}
  .landing-note{margin-top:35px;max-width:260px;line-height:1.6}
  .landing-bottomline{left:27px;right:27px;bottom:20px;font-size:7px}
