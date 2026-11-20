@@ -692,16 +692,7 @@
   mask-image:radial-gradient(ellipse at center,#000 30%,transparent 76%);
   animation:revivePatternDrift 26s linear infinite;
 }
-.landing-image-panel::after{
-  width:76%;
-  aspect-ratio:1;
-  left:12%;
-  top:10%;
-  border:1px solid rgba(204,226,180,.22);
-  border-radius:50%;
-  box-shadow:0 0 0 18px rgba(204,226,180,.035),0 0 0 38px rgba(204,226,180,.025);
-  animation:revivePatternOrbit 34s linear infinite;
-}
+.landing-image-panel::after{content:none}
 .landing-image-panel img{
   position:relative;
   z-index:1;
