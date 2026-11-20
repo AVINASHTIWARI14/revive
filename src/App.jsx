@@ -212,6 +212,7 @@ function App({ user: externalUser }) {
 <article className="feature-card"><span className="feature-icon"><Icon name="heart"/></span><div><h3>AI health assistant</h3><p>Ask questions about reports, nutrition and healthy habits.</p></div><span className="coming-soon">COMING SOON</span></article>
 <article className="feature-card"><span className="feature-icon"><Icon name="users"/></span><div><h3>Family & caregiver access</h3><p>Share selected health updates with trusted people.</p></div><span className="coming-soon">COMING SOON</span></article>
 </div>
+<div className="dashboard-footer"><span>© 2026 REVIVE</span><button type="button" className="logout-button" onClick={() => { localStorage.removeItem("revive-demo-user"); setDemoUser(null); setAuthMode(""); setActiveTab("dashboard"); }}>Log out <span aria-hidden="true">↗</span></button></div>
 </section>
 ) : (
           <section className="page-content">
