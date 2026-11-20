@@ -665,10 +665,10 @@
 .landing-image-panel{
   position:absolute;
   z-index:1;
-  top:8%;
-  right:11%;
-  width:36%;
-  height:84%;
+  top:0;
+  right:7%;
+  width:45%;
+  height:100%;
   overflow:visible;
   pointer-events:none;
   background:transparent;
@@ -686,7 +686,8 @@
   object-fit:contain;
   object-position:center;
   image-rendering:auto;
-  transform:none;
+  transform:scale(1.4);
+  transform-origin:center right;
   backface-visibility:visible;
   filter:none;
 }
