@@ -666,7 +666,7 @@
   position:absolute;
   z-index:1;
   top:8%;
-  right:14%;
+  right:11%;
   width:36%;
   height:84%;
   overflow:visible;
@@ -676,22 +676,6 @@
   mask-image:none;
 }
 .landing-image-panel::before,
-.landing-image-panel::after{
-  content:"";
-  position:absolute;
-  z-index:0;
-  pointer-events:none;
-}
-.landing-image-panel::before{
-  inset:-12%;
-  opacity:.62;
-  background:
-    radial-gradient(circle,rgba(202,224,174,.72) 1.15px,transparent 1.7px) 0 0/19px 19px,
-    radial-gradient(ellipse at 50% 48%,transparent 38%,rgba(202,224,174,.2) 38.3%,transparent 38.8%,transparent 48%,rgba(202,224,174,.14) 48.3%,transparent 48.8%);
-  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 76%);
-  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 76%);
-  animation:revivePatternDrift 26s linear infinite;
-}
 .landing-image-panel::after{content:none}
 .landing-image-panel img{
   position:relative;
@@ -705,17 +689,6 @@
   transform:none;
   backface-visibility:visible;
   filter:none;
-}
-@keyframes revivePatternDrift{
-  from{background-position:0 0,0 0}
-  to{background-position:76px 38px,0 0}
-}
-@keyframes revivePatternOrbit{
-  from{transform:rotate(0deg) scale(1)}
-  to{transform:rotate(360deg) scale(1)}
-}
-@media(prefers-reduced-motion:reduce){
-  .landing-image-panel::before,.landing-image-panel::after{animation:none}
 }
 .landing-content{width:min(560px,64%);transform:translateX(52px)}
 @media(max-width:760px){
