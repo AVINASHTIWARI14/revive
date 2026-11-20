@@ -666,14 +666,14 @@
   position:absolute;
   z-index:1;
   top:8%;
-  right:2%;
+  right:7%;
   width:36%;
   height:84%;
   overflow:hidden;
   pointer-events:none;
   background:transparent;
-  -webkit-mask-image:radial-gradient(ellipse 78% 78% at 58% 50%,#000 54%,transparent 100%);
-  mask-image:radial-gradient(ellipse 78% 78% at 58% 50%,#000 54%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 82% 82% at 58% 50%,#000 54%,transparent 100%);
+  mask-image:radial-gradient(ellipse 82% 82% at 58% 50%,#000 54%,transparent 100%);
 }
 .landing-image-panel::before{content:none}
 .landing-image-panel img{
@@ -682,8 +682,8 @@
   height:100%;
   object-fit:contain;
   object-position:center;
-  image-rendering:auto;
-  transform:translateZ(0);
+  image-rendering:high-quality;
+  transform:translate3d(0,0,0);
   backface-visibility:hidden;
   filter:saturate(1.04) contrast(1.025);
 }
