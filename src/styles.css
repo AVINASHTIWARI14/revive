@@ -539,3 +539,35 @@
 .avatar-menu .camera-actions button{border:0;border-radius:8px;padding:10px 7px;background:#315d40;color:#fff;font:600 11px "DM Sans",sans-serif;cursor:pointer}
 .avatar-menu .camera-actions button:last-child{background:#e8eee5;color:#426348}
 .avatar-menu>button{width:100%}
+
+
+/* Keep the add-photo affordance centered over the avatar, not as a side badge */
+.avatar-camera{
+  inset:0;
+  right:auto;
+  bottom:auto;
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:50%;
+  background:rgba(13,35,23,.28);
+  color:#fff;
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  opacity:0;
+  transform:none;
+  transition:opacity .2s ease,backdrop-filter .2s ease;
+}
+.profile-avatar:hover .avatar-camera,
+.profile-avatar:focus-visible .avatar-camera{
+  opacity:1;
+}
+.avatar-camera svg{width:22px;height:22px;stroke-width:2}
+@media(max-width:800px){
+  .avatar-camera{width:auto;height:auto;opacity:0;transform:none}
+  .profile-avatar:active .avatar-camera,
+  .profile-avatar:focus-visible .avatar-camera{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .avatar-camera{transition:none}
+}
