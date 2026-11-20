@@ -755,3 +755,11 @@
   .landing-auth-card h2{font-size:32px}
 }
 @media(prefers-reduced-motion:reduce){.landing-auth-backdrop,.landing-auth-card{animation:none}}
+
+
+/* Google sign-in option (UI only; provider hookup will be added later) */
+.landing-auth-divider{display:flex;align-items:center;gap:12px;margin:18px 0 14px;color:#9aa596;font-size:8px;font-weight:800;letter-spacing:1.35px}
+.landing-auth-divider::before,.landing-auth-divider::after{content:"";height:1px;flex:1;background:#dfe7da}
+.landing-google-button{width:100%;height:47px;display:flex;align-items:center;justify-content:center;gap:11px;border:1px solid #d9e2d5;border-radius:999px;background:rgba(255,255,255,.78);color:#344b3a;font:700 11px "DM Sans",sans-serif;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.landing-google-button:hover{background:#fff;border-color:#b9cbb2;transform:translateY(-1px)}
+.landing-google-button svg{width:17px;height:17px;flex:none}
