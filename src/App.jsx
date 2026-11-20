@@ -136,7 +136,9 @@ function App({ user }) {
                 <button className="landing-secondary" type="button" onClick={() => setAuthMode("login")}>Log in</button>
               </div>
             </div>
-            
+            <div className="landing-image-panel" aria-hidden="true">
+              <img src="/images/landing-image.png" alt="" />
+            </div>
           </section>
           {authMode && <div className="landing-auth-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setAuthMode(""); }}>
             <section className="landing-auth-card" role="dialog" aria-modal="true" aria-labelledby="landing-auth-title">
